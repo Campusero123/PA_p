@@ -9,6 +9,6 @@ e privados, a fim de identificar mulheres em situações de perigo. Uma vez iden
 como situação de perigo/risco, são disparadas mensagens de alerta para canais exclusivos e prioritários com a polícia.
 
 * Equipe: 
-- Augusto Falcão
-- Marcus Mitra
-- Giovanna Lyssa
+  - Augusto Falcão
+  - Marcus Mitra
+  - Giovanna Lyssa
