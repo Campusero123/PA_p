@@ -100,3 +100,50 @@ Cada história de usuário deve ser validada pelos seguintes critérios:
 - É importante que o sistema seja integrado com outras ferramentas e tecnologias de segurança pública, como bancos de dados criminais e sistemas de comunicação, para potencializar sua eficácia.
 
 # 3. Arquitetura do Sistema:
+
+## 3.1 Contexto Operacional:
+
+O sistema funcionará integrado a uma infraestrutura de vigilância já existente, utilizando câmeras instaladas em locais públicos e privados. As câmeras capturam imagens e enviam esses dados para o processamento no módulo de IA do sistema, que é capaz de analisar microexpressões faciais para identificar sinais de medo ou estresse que possam indicar uma situação de risco. A arquitetura também contempla canais de comunicação priorizados com as forças policiais, permitindo o envio de alertas em tempo real.
+
+## 3.2 Componentes Principais da Arquitetura:
+### 3.2.1 Módulo de Captura de Imagens:
+
+Responsável por coletar imagens em tempo real a partir das câmeras conectadas ao sistema.
+Inclui mecanismos de pré-processamento para ajustar a qualidade das imagens e garantir o melhor desempenho da análise facial.
+
+### 3.2.2 Processador de IA para Detecção de Microexpressões:
+Este é o núcleo de análise do sistema, onde algoritmos de aprendizado de máquina e redes neurais processam as imagens capturadas.
+O módulo é treinado para identificar microexpressões faciais associadas a emoções de medo, estresse e outras emoções relevantes que podem indicar perigo.
+O Processador de IA realiza uma análise em tempo real, classificando a situação como “segura” ou “de risco”.
+
+### 3.2.3 Sistema de Alerta para Forças Policiais:
+Responsável por gerar notificações em tempo real ao detectar uma situação de risco.
+Envia mensagens para canais exclusivos de contato com as forças policiais, permitindo o rápido acionamento.
+Possui mecanismos de confirmação para reduzir falsos positivos, minimizando possíveis alarmes falsos.
+
+### 3.2.4 Armazenamento Seguro de Dados:
+Garante a integridade e confidencialidade dos dados capturados, armazenando registros de situações classificadas como "de risco" para posterior análise e auditoria.
+Este módulo está em conformidade com as regulamentações de proteção de dados, como a LGPD, para assegurar a privacidade das pessoas capturadas pelas câmeras.
+
+## 3.3 Fluxo de Operação:
+### 3.3.1 Captura e Pré-processamento de Imagens: 
+As câmeras registram o ambiente e transmitem as imagens para o módulo de captura de imagens, que as prepara para análise.
+
+### 3.3.2 Análise e Classificação:
+O Processador de IA recebe as imagens pré-processadas, identifica microexpressões faciais e classifica a situação como segura ou de risco.
+
+### 3.3.3 Geração de Alertas: 
+Se a situação for classificada como de risco, o sistema dispara alertas imediatos para as forças policiais por meio do sistema de alerta, utilizando canais de comunicação priorizados.
+
+### 3.3.4 Armazenamento de Dados:
+As imagens e resultados das análises são armazenados em um repositório seguro, onde podem ser acessados apenas por autoridades autorizadas para fins de investigação.
+
+## 3.4 Benefícios da Arquitetura
+### 3.4.1 Detecção Precisa e em Tempo Real: 
+A análise de microexpressões faciais é processada em baixa latência, garantindo que qualquer risco seja identificado e notificado de forma rápida.
+
+### 3.4.2 Segurança e Conformidade: 
+A arquitetura foi projetada para atender às regulamentações de segurança e privacidade, com armazenamento seguro e tratamento responsável dos dados capturados.
+
+### 3.4.3 Escalabilidade e Flexibilidade: 
+A arquitetura modular permite que o sistema possa ser expandido com novos algoritmos de detecção e ajuste dos canais de comunicação, adequando-se às necessidades futuras.
