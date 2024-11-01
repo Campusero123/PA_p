@@ -147,3 +147,76 @@ A arquitetura foi projetada para atender às regulamentações de segurança e p
 
 ### 3.4.3 Escalabilidade e Flexibilidade: 
 A arquitetura modular permite que o sistema possa ser expandido com novos algoritmos de detecção e ajuste dos canais de comunicação, adequando-se às necessidades futuras.
+
+# 4. Arquitetura do Software(conforme a seção 6 da norma 42010-2022 - IEEE/ISO/IEC):
+
+## 4.1 Stakeholders e Requisitos da Arquitetura
+- **Forças Policiais:** Precisam receber alertas com precisão e em tempo real para reduzir o tempo de resposta a incidentes.
+- **Equipe de Desenvolvimento:** Requer uma estrutura modular e flexível para melhorar a capacidade de manutenção e atualização dos algoritmos de IA e das interfaces com o sistema de alertas.
+- **Organizações de Proteção à Privacidade:** Demandam garantias de que os dados de vigilância respeitem as regulamentações de privacidade e segurança, como a LGPD.
+
+## 4.2 Viewpoints Selecionados
+A partir da norma IEEE/ISO/IEC 42010-2022, selecionamos viewpoints que proporcionam uma visão completa da arquitetura do software, considerando sua estrutura, comunicação, e segurança:
+- **Viewpoint Funcional (Descrevendo o Comportamento do Sistema):**
+Focado em detalhar os principais módulos funcionais que integram o sistema.
+
+- **Viewpoint de Comunicação (Interação entre Componentes):**
+Esclarece a comunicação entre os módulos do software, especialmente entre a detecção de IA e o sistema de alertas.
+
+- **Viewpoint de Segurança (Proteção de Dados e Privacidade):**
+Define práticas de segurança para proteger as informações sensíveis geradas e capturadas pelo sistema.
+
+## 4.3 Modelos de Componentes e Estrutura Modular do Software
+
+### 4.3.1 Módulo de Captura de Imagens
+- **Descrição:** Interface de entrada que coleta as imagens de vídeo em tempo real a partir das câmeras conectadas ao sistema.
+- **Responsabilidades:**
+	- Realizar o pré-processamento das imagens, incluindo a padronização da qualidade para análise.
+	- Filtrar imagens irrelevantes para reduzir a carga de processamento da IA.
+- **Comunicação:** Transmite as imagens para o Processador de IA para análise.
+- **Concerns:** Qualidade das imagens e segurança na transferência de dados.
+
+### 4.3.2 Módulo Processador de IA (Detecção de Microexpressões Faciais)
+- **Descrição:** Módulo central de análise responsável por interpretar microexpressões faciais e identificar emoções de risco.
+- **Responsabilidades:**
+	- Processar as imagens recebidas e detectar microexpressões faciais que indiquem emoções como medo ou estresse.
+	- Classificar a situação como “segura” ou “de risco” com base nos resultados da análise.
+- **Comunicação:** Envia o resultado da análise para o Sistema de Alerta quando uma situação de risco é identificada.
+- **Concerns:** Precisão e confiabilidade dos algoritmos de IA, controle de falsos positivos.
+
+### 4.3.3 Sistema de Alerta
+- **Descrição:** Gera e envia notificações para as forças policiais ao identificar uma situação de risco.
+- **Responsabilidades:**
+	- Estabelecer conexão com canais de comunicação exclusivos para alertar as forças policiais.
+	- Confirmar a entrega dos alertas e permitir acompanhamento das notificações.
+- **Comunicação:** Recebe a classificação de risco do Processador de IA e envia mensagens aos sistemas policiais.
+- **Concerns:** Baixa latência na geração e envio dos alertas, garantia de confidencialidade no canal de comunicação.
+
+### 4.3.4 Armazenamento Seguro de Dados
+- **Descrição:** Repositório seguro para armazenar os dados capturados e os resultados das análises de situações classificadas como “de risco”.
+- **Responsabilidades:**
+	- Guardar os registros de forma segura e em conformidade com a LGPD.
+	- Proteger o acesso aos dados, limitando-o a autoridades autorizadas para investigação e auditoria.
+- **Comunicação:** Recebe dados diretamente do Processador de IA e do Sistema de Alerta.
+- **Concerns:** Conformidade com a LGPD e segurança dos dados armazenados.
+
+## 4.4 Fluxo de Dados e Comunicação Entre Componentes
+- **Captura e Transmissão de Imagens:** As câmeras conectadas ao Módulo de Captura enviam as imagens processadas ao Processador de IA.
+- **Análise e Detecção de Risco:** O Processador de IA classifica a situação e notifica o Sistema de Alerta caso um risco seja detectado.
+- **Envio de Alertas:** O Sistema de Alerta comunica-se diretamente com as forças policiais por meio de canais de comunicação seguros e exclusivos.
+- **Armazenamento Seguro:** Dados sensíveis das situações de risco são armazenados de forma segura, e acessíveis apenas para autoridades autorizadas.
+
+## 4.5 Restrições e Condições de Operação
+- **Restrições de Tempo Real:** O sistema precisa responder rapidamente à análise e envio de alertas, minimizando atrasos.
+- **Segurança e Conformidade com Regulamentações:** Todos os módulos devem assegurar a proteção dos dados e conformidade com as leis de privacidade, como a LGPD.
+- **Escalabilidade:** A arquitetura deve ser preparada para expansão, permitindo a adição de novos algoritmos de análise e suporte a mais câmeras.
+
+## 4.6 Benefícios Arquiteturais e Riscos
+**Benefícios:**
+- **Modularidade:** Facilita atualizações e manutenção dos módulos de IA e alertas.
+- **Segurança:** Conformidade com a LGPD e proteção dos dados capturados.
+- **Tempo Real:** O sistema permite uma resposta rápida a incidentes, ajudando a prevenir crimes em potencial.
+
+**Riscos:**
+- **Falsos Positivos/Negativos:** Algoritmos de IA podem classificar erroneamente situações de risco, exigindo ajustes contínuos nos modelos de detecção.
+- **Privacidade:** Garantir que as imagens e dados sensíveis estejam protegidos e apenas acessíveis para fins legais.
