@@ -1,4 +1,4 @@
-PROJETO FINAL DE PADRÕES DE ARQUITETURA DE SOFTWARE 2024/2 - INF/UFG
+﻿PROJETO FINAL DE PADRÕES DE ARQUITETURA DE SOFTWARE 2024/2 - INF/UFG
 ---
 ### Seja bem-vindo à página do nosso projeto!
 
@@ -160,11 +160,17 @@ A partir da norma IEEE/ISO/IEC 42010-2022, selecionamos viewpoints que proporcio
 - **Viewpoint Funcional (Descrevendo o Comportamento do Sistema):**
 Focado em detalhar os principais módulos funcionais que integram o sistema.
 
+![Viewpoint Funcional](/media/ViewpointFuncional.png)
+
 - **Viewpoint de Comunicação (Interação entre Componentes):**
 Esclarece a comunicação entre os módulos do software, especialmente entre a detecção de IA e o sistema de alertas.
 
+![Viewpoint de Comunicação](/media/ViewpointComunicacao.png)
+
 - **Viewpoint de Segurança (Proteção de Dados e Privacidade):**
 Define práticas de segurança para proteger as informações sensíveis geradas e capturadas pelo sistema.
+
+![Viewpoint de Segurança](/media/ViewpointSeguranca.png)
 
 ## 4.3 Modelos de Componentes e Estrutura Modular do Software
 
