@@ -159,14 +159,17 @@ A arquitetura modular permite que o sistema possa ser expandido com novos algori
 A partir da norma IEEE/ISO/IEC 42010-2022, selecionamos viewpoints que proporcionam uma visão completa da arquitetura do software, considerando sua estrutura, comunicação, e segurança:
 - **Viewpoint Funcional (Descrevendo o Comportamento do Sistema):**
 Focado em detalhar os principais módulos funcionais que integram o sistema.
+
 ![Viewpoint Funcional](/media/ViewpointFuncional.png)
 
 - **Viewpoint de Comunicação (Interação entre Componentes):**
 Esclarece a comunicação entre os módulos do software, especialmente entre a detecção de IA e o sistema de alertas.
+
 ![Viewpoint de Comunicação](/media/ViewpointComunicacao.png)
 
 - **Viewpoint de Segurança (Proteção de Dados e Privacidade):**
 Define práticas de segurança para proteger as informações sensíveis geradas e capturadas pelo sistema.
+
 ![Viewpoint de Segurança](/media/ViewpointSeguranca.png)
 
 ## 4.3 Modelos de Componentes e Estrutura Modular do Software
