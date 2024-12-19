@@ -5,7 +5,7 @@ from datetime import datetime
 from tkinter import Tk, filedialog
 
 # Configuração do servidor da AI. Exemplo: "http://localhost:8000"
-AI_SERVER_URL = ""
+AI_SERVER_URL = "http://localhost:11434/api/generate"
 
 # Função para selecionar uma imagem
 def select_image():
