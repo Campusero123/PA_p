@@ -32,17 +32,17 @@ def send_image_to_llava(image_base64, prompt, model="llava"):
 # Função para salvar o alerta
 def save_alert(image_path, alert_message):
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    save_dir = "./alerts"
-    os.makedirs(save_dir, exist_ok=True)
+    alert_dir = os.path.join("./alerts", timestamp)
+    os.makedirs(alert_dir, exist_ok=True)
 
     # Copiar a imagem
     image_name = os.path.basename(image_path)
-    alert_image_path = os.path.join(save_dir, f"{timestamp}_{image_name}")
+    alert_image_path = os.path.join(alert_dir, f"{timestamp}_{image_name}")
     with open(image_path, 'rb') as src, open(alert_image_path, 'wb') as dest:
         dest.write(src.read())
 
     # Salvar informações do alerta
-    with open(os.path.join(save_dir, f"{timestamp}_alert.txt"), 'w') as alert_file:
+    with open(os.path.join(alert_dir, f"{timestamp}_alert.txt"), 'w') as alert_file:
         alert_file.write(f"Horário: {timestamp}\n")
         alert_file.write(f"Mensagem de Alerta: {alert_message}\n")
         alert_file.write(f"Caminho da Imagem: {alert_image_path}\n")
@@ -79,6 +79,7 @@ def main():
         save_alert(image_path, response_text)
     else:
         print("✅ Nenhuma situação de risco detectada.")
+
 
 if __name__ == "__main__":
     main()
