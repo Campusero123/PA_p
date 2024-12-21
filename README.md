@@ -226,3 +226,57 @@ Define práticas de segurança para proteger as informações sensíveis geradas
 **Riscos:**
 - **Falsos Positivos/Negativos:** Algoritmos de IA podem classificar erroneamente situações de risco, exigindo ajustes contínuos nos modelos de detecção.
 - **Privacidade:** Garantir que as imagens e dados sensíveis estejam protegidos e apenas acessíveis para fins legais.
+
+##4.7 Padrão Arquitetural Selecionado
+
+###Padrão: Pipeline (Arquitetura de Fluxo de Dados)
+
+**Justificativa:**
+Para atender às demandas de processamento em tempo real e alta modularidade do sistema, foi escolhido o padrão de arquitetura de Pipeline. Este modelo organiza o sistema em etapas sequenciais, onde cada módulo processa os dados e os transmite ao próximo módulo no fluxo. Essa abordagem é ideal para o problema apresentado, pois o sistema requer:
+
+- **1. Processamento em Tempo Real:** O fluxo contínuo de dados das câmeras precisa ser analisado rapidamente para identificar situações de risco e enviar alertas sem atrasos significativos.
+
+
+- **2. Modularidade:** Cada módulo do sistema (captura de imagens, processamento de IA, alertas, e armazenamento) pode ser desenvolvido, testado, e mantido de forma independente, facilitando atualizações e integração de novas tecnologias.
+
+
+- **3. Escalabilidade:** O pipeline permite adicionar mais câmeras, ajustar os algoritmos de IA e integrar novos canais de comunicação sem reestruturar a arquitetura base.
+
+
+- **4. Resiliência:** Caso um módulo falhe ou precise de ajustes, os demais módulos permanecem funcionais, minimizando impactos no sistema como um todo.
+
+
+
+**Modelo Aplicado:**
+O pipeline será composto pelos seguintes estágios, cada um correspondendo a um dos componentes principais descritos anteriormente:
+
+- **1. Entrada e Pré-processamento:** Módulo de captura de imagens coleta e prepara os dados.
+
+
+- **2. Processamento:** O Processador de IA analisa as imagens, identifica microexpressões e classifica o risco.
+
+
+- **3. Notificação:** O Sistema de Alerta envia notificações aos canais de contato com as forças policiais.
+
+
+- **4. Armazenamento e Auditoria:** O Armazenamento Seguro de Dados guarda os registros para uso posterior.
+
+
+
+**Fluxo de Dados:**
+
+- 1. As imagens são capturadas e pré-processadas.
+
+
+- 2. As imagens pré-processadas seguem para o Processador de IA.
+
+
+- 3. Os resultados da análise (seguro ou de risco) são transmitidos ao Sistema de Alerta.
+
+
+- 4. Os dados são armazenados para auditoria e análise posterior.
+
+
+
+O padrão de pipeline garante que cada etapa receba dados bem definidos e processe apenas o necessário, otimizando o desempenho e reduzindo atrasos. Essa abordagem também reforça a responsabilidade modular, permitindo a implementação de melhorias contínuas sem comprometer o funcionamento geral do sistema.
+
