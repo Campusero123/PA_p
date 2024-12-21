@@ -227,9 +227,9 @@ Define práticas de segurança para proteger as informações sensíveis geradas
 - **Falsos Positivos/Negativos:** Algoritmos de IA podem classificar erroneamente situações de risco, exigindo ajustes contínuos nos modelos de detecção.
 - **Privacidade:** Garantir que as imagens e dados sensíveis estejam protegidos e apenas acessíveis para fins legais.
 
-##4.7 Padrão Arquitetural Selecionado
+## 4.7 Padrão Arquitetural Selecionado
 
-###Padrão: Pipeline (Arquitetura de Fluxo de Dados)
+### Padrão: Pipeline (Arquitetura de Fluxo de Dados)
 
 **Justificativa:**
 Para atender às demandas de processamento em tempo real e alta modularidade do sistema, foi escolhido o padrão de arquitetura de Pipeline. Este modelo organiza o sistema em etapas sequenciais, onde cada módulo processa os dados e os transmite ao próximo módulo no fluxo. Essa abordagem é ideal para o problema apresentado, pois o sistema requer:
@@ -265,16 +265,16 @@ O pipeline será composto pelos seguintes estágios, cada um correspondendo a um
 
 **Fluxo de Dados:**
 
-- 1. As imagens são capturadas e pré-processadas.
+1. As imagens são capturadas e pré-processadas.
 
 
-- 2. As imagens pré-processadas seguem para o Processador de IA.
+2. As imagens pré-processadas seguem para o Processador de IA.
 
 
-- 3. Os resultados da análise (seguro ou de risco) são transmitidos ao Sistema de Alerta.
+3. Os resultados da análise (seguro ou de risco) são transmitidos ao Sistema de Alerta.
 
 
-- 4. Os dados são armazenados para auditoria e análise posterior.
+4. Os dados são armazenados para auditoria e análise posterior.
 
 
 
